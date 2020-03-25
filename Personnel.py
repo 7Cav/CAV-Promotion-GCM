@@ -73,17 +73,17 @@ def promo_finder():
     for person in personnel:
         paygrade2rank(person)
         if week_start <= person.PFC_Promo_date <= week_end and \
-                (person.status == "Active" or person.status == "Military ELOA") and person.paygrade != "E-3 PFC":
+                (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA") and person.paygrade != "E-3 PFC":
             print("PFC Promotion due: " + str(person.paygrade) + " " + str(person.firstname) + " "
                   + str(person.lastname) + " dated: " + str(person.PFC_Promo_date.strftime("%d %b %Y")).upper())
             pfc_list.append(person)
         elif week_start <= person.SPC_Promo_date <= week_end and \
-                (person.status == "Active" or person.status == "Military ELOA") and person.paygrade != "E-4A SPC":
+                (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA") and person.paygrade != "E-4A SPC":
             print("SPC Promotion due: " + str(person.paygrade) + " " + str(person.firstname) + " "
                   + str(person.lastname) + " dated: " + str(person.SPC_Promo_date.strftime("%d %b %Y")).upper())
             spc_list.append(person)
         elif person.CPL_Promo_date <= week_end and \
-                (person.status == "Active" or person.status == "Military ELOA") \
+                (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA") \
                 and person.paygrade == "E-4A SPC" and (person.NCOA == "TRUE" and person.SAC == "TRUE"):
             print("CPL Promotion due " + str(person.paygrade) + " " + str(person.firstname) + " "
                   + str(person.lastname) + " dated: " + str(person.CPL_Promo_date.strftime("%d %b %Y")).upper()
@@ -113,23 +113,23 @@ def gc_finder():
         paygrade2rank(person)
         if day_start <= person.gc <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
             gc_list.append(person)
-        elif day_start <= person.gc_bk1 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_bk1 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             bk1_list.append(person)
-        elif day_start <= person.gc_bk2 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_bk2 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             bk2_list.append(person)
-        elif day_start <= person.gc_bk3 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_bk3 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             bk3_list.append(person)
-        elif day_start <= person.gc_sk1 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_sk1 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             sk1_list.append(person)
-        elif day_start <= person.gc_sk2 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_sk2 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             sk2_list.append(person)
-        elif day_start <= person.gc_sk3 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_sk3 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             sk3_list.append(person)
-        elif day_start <= person.gc_gk1 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_gk1 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             gk1_list.append(person)
-        elif day_start <= person.gc_gk2 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_gk2 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             gk2_list.append(person)
-        elif day_start <= person.gc_gk3 <= day_end and (person.status == "Active" or person.status == "Military ELOA"):
+        elif day_start <= person.gc_gk3 <= day_end and (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA"):
             gk3_list.append(person)
     return gc_list,bk1_list,bk2_list,bk3_list,sk1_list,sk2_list,sk3_list,gk1_list,gk2_list,gk3_list    
 
