@@ -72,12 +72,12 @@ def promo_finder():
     print("weekstart:"+str(week_start)+" week-end:"+str(week_end))
     for person in personnel:
         paygrade2rank(person)
-        if week_start <= person.PFC_Promo_date <= week_end and \
+        if person.PFC_Promo_date <= week_end and \
                 (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA") and person.paygrade != "E-3 PFC":
             print("PFC Promotion due: " + str(person.paygrade) + " " + str(person.firstname) + " "
                   + str(person.lastname) + " dated: " + str(person.PFC_Promo_date.strftime("%d %b %Y")).upper())
             pfc_list.append(person)
-        elif week_start <= person.SPC_Promo_date <= week_end and \
+        elif person.SPC_Promo_date <= week_end and \
                 (person.status == "Active" or person.status == "Military ELOA" or person.status == "Medical ELOA") and person.paygrade != "E-4A SPC":
             print("SPC Promotion due: " + str(person.paygrade) + " " + str(person.firstname) + " "
                   + str(person.lastname) + " dated: " + str(person.SPC_Promo_date.strftime("%d %b %Y")).upper())
